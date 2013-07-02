@@ -9,7 +9,7 @@ function multiplesOf3And5() {
   }
   return total;
 }
-alert("The sum of all the multiples of 3 or 5 below 1000 is " + multiplesOf3And5() + ".");
+alert(multiplesOf3And5());
 
 // Problem 2
 // Find the sum of the even values of the Fibonacci sequence below 4,000,000
@@ -29,5 +29,30 @@ function sumEvenFibonacci(max) {
   }
   return total;
 }
-alert("The sum of the even values of the Fibonacci sequence below 4,000,000 is " + sumEvenFibonacci(4000000) + ".");
+alert(sumEvenFibonacci(4000000));
 
+// # Problem 3
+// # The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ?
+
+function maxPrimeFactors(num) {
+  // First prime number
+  var x = 2;
+  var primes = [];
+
+  while (num > 1) {
+    if (num % x === 0) {
+      primes.push(x);
+      num = num / x;
+    } else {
+      x += 1;
+    }
+  }
+  maxPrime = primes[0];
+  for (var i = 1; i < primes.length; i += 1) {
+    if (primes[i] > maxPrime) {
+      maxPrime = primes[i];
+    }
+  }
+  return maxPrime;
+}
+alert(maxPrimeFactors(600851475143));

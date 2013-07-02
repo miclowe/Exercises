@@ -11,7 +11,7 @@ def multiples_of_3_and_5
   end
   total
 end
-puts "The sum of all the multiples of 3 or 5 below 1000 is #{multiples_of_3_and_5}."
+puts multiples_of_3_and_5
 
 # Problem 2
 # Find the sum of the even values of the Fibonacci sequence below 4,000,000
@@ -26,4 +26,13 @@ def sum_even_fibonacci(max)
   arr.each { |x| total += x if x.even? }
   total
 end
-puts "The sum of the even values of the Fibonacci sequence below 4,000,000 is #{sum_even_fibonacci(4000000)}."
+puts sum_even_fibonacci(4000000)
+
+# Problem 3
+# The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143?
+
+require 'prime'
+def max_prime(num)
+  Prime.prime_division(num).flatten.uniq.sort.max
+end
+puts max_prime(600851475143)
