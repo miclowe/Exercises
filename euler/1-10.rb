@@ -36,3 +36,24 @@ def max_prime(num)
   Prime.prime_division(num).flatten.uniq.sort.max
 end
 puts max_prime(600851475143)
+
+# Problem 4
+# A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.
+# Find the largest palindrome made from the product of two 3-digit numbers.
+
+def max_palidrome_product(min, max)
+  lrg_pal = 0
+  max.downto(min) do |i|
+    i.downto(min) do |j|
+      product = i * j
+      if product > lrg_pal && product.to_s == product.to_s.reverse #it's a palindrome
+        # puts "i = #{i}"
+        # puts "j = #{j}"
+        lrg_pal = product
+      end
+    end
+  end
+  lrg_pal
+end
+
+puts max_palidrome_product(100,999)
