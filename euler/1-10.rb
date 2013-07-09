@@ -61,30 +61,10 @@ puts max_palidrome_product(100,999)
 # Problem 5
 # 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
-
-def is_divisible(product,max)
-  (2..max).each do |x|
-    if product % x == 0
-      x += 1
-    else
-      return false
-    end
-  end
-  true
-end
+# Solution: Find least common multiple of numbers
 
 def min_divisible_by_all(num)
-  sm_div = 0
-  n = num
-  while sm_div == 0
-    product = num * n
-    if is_divisible(product,num)
-      sm_div = product
-    else
-      n += 1
-    end
-  end
-  sm_div
+  (1..num).inject(:lcm)
 end
 
 puts min_divisible_by_all(20)
